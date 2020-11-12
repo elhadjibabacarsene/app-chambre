@@ -1,0 +1,31 @@
+.color-general
+{
+    color:#0D2170;
+}
+
+#btn-submit-form
+{
+    background-color: #0D2170;
+    height: 40px;
+}
+.icone-menu
+{
+    width: 40px;
+    height: 40px;
+}
+.img-ic-table{
+    width: 22px;
+    height: 22px;
+}
+
+#scrollZone{
+    max-height: 400px;
+    overflow: scroll;
+}
+
+
+.disable{
+    pointer-events:none;
+    background:rgb(235,235,228);
+    color:green;
+}

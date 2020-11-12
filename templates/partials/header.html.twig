@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
+        {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+        {{ encore_entry_link_tags('app') }}
+
+        <!-- Renders a link tag (if your module requires any CSS)
+             <link rel="stylesheet" href="/build/app.css"> -->
+    {% endblock %}
+</head>
+<body>
+{% block nav %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-2">
+        <a class="navbar-brand" href="#"><span class="font-weight-bold color-general">Symbole</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto d-lg-none" id="menu-big">
+                <li class="nav-item active d-lg-none">
+                    <a class="nav-link" href="" >Ajouter un étudiant<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Etudiant/listeetudiant">Liste étudiants</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=URL?>Chambre/addchambre">Ajouter une chambre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=URL?>Chambre/listechambre">Liste chambre</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+            {% block menu %}
+                <div class="d-none d-lg-block">
+                    <div class="row mt-4 ml-1 mb-4">
+                        <h5 class="font-weight-normal color-general">Menu</h5>
+                    </div>
+                    <div class="row ml-1 d-block mb-5">
+                        <div>
+                            <h6 class="font-weight-bold text-secondary">Etudiant</h6>
+                        </div>
+                        <div class="d-inline d-block mb-3">
+                            <img src="{{ asset('/source/image/icones/student.png') }}" alt="" class="icone-menu mr-1" id="icone-add-etudiant">
+                            <span class="color-general font-weight-bold">Ajouter un étudiant</span>
+                        </div>
+                        <div class="d-inline d-block mb-3">
+                            <img src="{{ asset('/source/image/icones/list.png') }}" alt="" class="icone-menu mr-1" id="icone-add-etudiant">
+                            <span class="text-secondary">Liste étudiants</span>
+                        </div>
+                    </div>
+                    <div class="row ml-1 d-block mb-3">
+                        <div>
+                            <h6 class="font-weight-bold text-secondary">Chambres</h6>
+                        </div>
+                        <div class="d-inline d-block mb-3">
+                            <img src="{{ asset('/source/image/icones/bed.png') }}" alt="" class="icone-menu mr-1" id="icone-add-etudiant">
+                            <span class="text-secondary">Ajouter une chambre</span>
+                        </div>
+                        <div class="d-inline d-block mb-3">
+                            <img src="{{ asset('/source/image/icones/list.png') }}" alt="" class="icone-menu mr-1" id="icone-add-etudiant">
+                            <span class="text-secondary">Liste chambres</span>
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+</div>

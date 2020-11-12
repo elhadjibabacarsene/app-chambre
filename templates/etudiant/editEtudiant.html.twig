@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+{% block title %}Symbole{% endblock %}
+
+{% block body %}
+    <div class="row border-bottom mb-4">
+        <div class="col-6 d-flex justify-content-start align-items-center">
+            <h4 class="color-general mt-5 mb-5 font-weight-normal">Edition de l'étudiant<span class="font-weight-light"> {{ etudiant.matricule }}</span></h4>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <img src="{{ asset('/source/image/icones/student.png') }}" class="icone-menu" alt="">
+        </div>
+    </div>
+    {{ form_start(formEditEtudiant) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(formEditEtudiant) }}
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-4">
+
+            <div class="form-group">
+
+                {{ form_row(formEditEtudiant.prenom,{'attr':{'placeholder':"Votre Prenom"}}) }}
+                <span id="prenom_error" class="text-danger font-weight-bold"></span>
+            </div>
+
+            <div class="form-group">
+
+                {{ form_row(formEditEtudiant.email,{'attr':{'placeholder':"Votre Email",'id':"email"}}) }}
+                <span id="email_error" class="text-danger font-weight-bold"></span>
+            </div>
+
+            <div class="form-group">
+
+                {{ form_row(formEditEtudiant.dateNaissance,{'attr':{'placeholder':"2020-02-20",'id':"datenaissance"}}) }}
+                <span id="datenaissance_error" class="text-danger font-weight-bold"></span>
+            </div>
+            <div class="form-group chambreclass">
+
+                {{ form_row(formEditEtudiant.numeroChambre,{'attr':{'id':"numerochambre"}}) }}
+                <span id="numerochambre_error" class="text-danger font-weight-bold"></span>
+            </div>
+
+            <div class="">
+                <button type="submit" name="submit" id="mysubmitForm" class="btn btn-outline-primary" btn-lg btn-block>
+                    Enregistrer
+                </button>
+            </div>
+        </div>
+        <div class="col-lg-4">
+
+            <div class="form-group">
+
+                {{ form_row(formEditEtudiant.nom,{'attr':{'placeholder':"Votre Nom",'id':"nom"}}) }}
+                <span id="nom_error" class="text-danger font-weight-bold"></span>
+            </div>
+            <div class="form-group d-none" id="statut">
+
+                {{ form_row(formEditEtudiant.statut) }}
+                <span id=""></span>
+            </div>
+            <div class="form-group">
+
+                {{ form_row(formEditEtudiant.telephone,{'attr':{'placeholder':"Votre Numero de telephone",'id':"telephone"}}) }}
+                <span id="telephone_error" class="text-danger font-weight-bold"></span>
+            </div>
+
+            <div class="mb-1">Catégorie</div>
+            <div class="form-radio mb-2 text-center">
+                <input class="form-radio-input categories categories_success" type="radio" required id="categorie1"
+                       name="categorie" value="boursier">
+
+                <label class="form-radio-label mr-2 font-weight-bold" for="categorie1" name="categorie">
+                    Boursier
+                </label>
+                <input class="form-radio-input categories categories_success" required type="radio" id="categorie2"
+                       name="categorie" value="Nboursier">
+
+                <label class="form-radio-label font-weight-bold" for="categorie2">
+                    Non Boursier
+                </label></br>
+            </div>
+            <div class="form-group addresseclasse">
+
+                {{ form_row(formEditEtudiant.adresse,{'attr':{'placeholder':"Votre Adresse",'id':"adresse"}}) }}
+                <span id="adresse_error" class="text-danger font-weight-bold"></span>
+            </div>
+
+            <div class="form-group typebourseclasse">
+                <label for="formGroupExampleInput">TypeBourse</label>
+                {{ form_widget(formEditEtudiant.idTypeBourse,{'attr':{'id':"typebourse"}}) }}
+                <span id="typebourse_error" class="text-danger font-weight-bold"></span>
+            </div>
+            <div class="form-group typebourseclasse">
+                {{ form_row(formEditEtudiant.inshoused) }}
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {{ form_end(formEditEtudiant) }}
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('modifyEtudiant') }}
+{% endblock %}

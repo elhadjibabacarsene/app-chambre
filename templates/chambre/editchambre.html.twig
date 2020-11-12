@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChambreController!{% endblock %}
+
+{% block body %}
+    <div class="row border-bottom mb-4">
+        <div class="col-6 d-flex justify-content-start align-items-center">
+            <h4 class="color-general mt-5 mb-5 font-weight-normal">Editer la chambre<span
+                        class="font-weight-light"> {{ chambre.numero }}</span></h4>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <img src="{{ asset('/source/image/icones/bed.png') }}" class="icone-menu" alt="">
+        </div>
+    </div>
+    <div class="babs prends ca ">
+        <div class="alert" role="alert" id="alert">
+        </div>
+            <div class="row text-center">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 text-center">
+                    {{  form_start(form) }}
+                    <div class="mb-5">
+                        <div class="form-group mb-4">
+                            {{ form_widget(form)}}
+                        </div>
+                        <small id="" class="form-text text-danger comments"></small>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <button type="submit" name="enregistrer" id="btn-submit-form"
+                            class=" mt-5 w-100 border-0 rounded-lg text-white">Enregistrer
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+
+                </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('addChambre') }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+{% endblock %}
